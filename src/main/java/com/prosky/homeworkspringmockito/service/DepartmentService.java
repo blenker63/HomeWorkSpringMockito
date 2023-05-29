@@ -16,7 +16,6 @@ public class DepartmentService {
     }
 
     public Optional<Employee> employeeMaxSalary(int department) {
-//    public Collections<Employee> employeeMaxSalary(int department) {
         return employeeService.employeeData.values().stream()
                 .filter(employeeData -> employeeData.getDepartment() == department)
                 .max(Comparator.comparing(Employee::getSalary));

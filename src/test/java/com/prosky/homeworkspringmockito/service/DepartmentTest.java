@@ -67,10 +67,22 @@ public class DepartmentTest {
                 "Сидоров11СидорСидорович",
                 new Employee("Сидоров11", "Сидор", "Сидорович", 1, 13000));
         when(employeeServiceMoc.employeeData()).thenReturn(employeeTest);
-//        assertNotNull(departmentService.employeeMaxSalary(7));
-        assertEquals(employeeTest.get("Сидоров11СидорСидорович"), departmentService.employeeMaxSalary(1));
-//        assertEquals(employeeTest.get("Сидоров11СидорСидорович"),  new Employee("Сидоров11", "Сидор", "Сидорович", 1, 13000));
-//        assertEquals(new Employee("Сидоров11", "Сидор", "Сидорович", 1, 13000), departmentService.employeeMaxSalary(1));
+        assertNotNull(departmentService.employeeMaxSalary(7));
+//        assertEquals(employeeTest.get("Сидоров11СидорСидорович"), departmentService.employeeMaxSalary(1));
+    }
+
+    @Test
+    void employeeMinSalaryTest() {
+        Map<String, Employee> employeeTest = Map.of(
+                "Иванов11ИванИванович",
+                new Employee("Иванов11", "Иван", "Иванович", 1, 11_000),
+                "Петров11ПетрПетрович",
+                new Employee("Петров11", "Петр", "Петрович", 2, 15000),
+                "Сидоров11СидорСидорович",
+                new Employee("Сидоров11", "Сидор", "Сидорович", 1, 13000));
+        when(employeeServiceMoc.employeeData()).thenReturn(employeeTest);
+//        assertNotNull(departmentService.employeeMinSalary(7));
+        assertEquals(employeeTest.get("Иванов11ИванИванович"), departmentService.employeeMinSalary(1));
     }
 }
 
